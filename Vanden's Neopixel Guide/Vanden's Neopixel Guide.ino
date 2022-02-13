@@ -22,7 +22,7 @@ uint32_t yellow = strip.Color(255,208,0);
 void setup() {
   // put your setup code here, to run once:
 strip.begin(); //this starts the leds, you need this in the setup anytime you use a led string
-strip.show(); //this 
+strip.show(); //any changes to the lights do not have an immediate effect, it simply saves it to a buffer, you must send the buffer to the lights by using strip.show(); 
 }
 
 void loop() {
