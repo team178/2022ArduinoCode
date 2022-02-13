@@ -26,13 +26,22 @@ int yellow = strip.Color(255,208,0);
 //variables for later use
 int pixelNum=0;
 int pixelNumEnd=1;
+int brightness=255;
 int r=0;
 int g=0;
 int b=0;
 
 void setup() {
-strip.begin(); //this starts the leds, you need this in the setup anytime you use a led string, 
-strip.show(); //any changes to the lights do not have an immediate effect, it simply saves it to a buffer, you must send the buffer to the lights by using strip.show(); 
+  strip.begin(); //this starts the leds, you need this in the setup anytime you use a led string, 
+
+  /*
+  setBrightness changes the brightness of the LEDs, use a integer between 0(off)-225(full), the defualt is full brightness
+  IMPORTANT: only use this method in the start of setup, using it multiple times in the same program may cause issues
+  setBrightness(int brightness)
+  */
+  strip.setBrightness(brightness);
+
+  strip.show(); //any changes to the lights do not have an immediate effect, it simply saves it to a buffer, you must send the buffer to the lights by using strip.show(); 
 }
 
 void loop() {
@@ -52,6 +61,7 @@ void loop() {
   */
   strip.fill(blue, pixelNum);
   //to fill only a section of the led strip do
-  strip.fill(blue, pixelNum, pixelNumEnd)
+  strip.fill(blue, pixelNum, pixelNumEnd);
 
+  strip.clear();//clears the entire strip(sets all pixels to off)
 }
