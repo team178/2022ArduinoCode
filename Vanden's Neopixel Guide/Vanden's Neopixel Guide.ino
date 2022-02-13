@@ -1,4 +1,6 @@
 /*
+Vanden's Neopixel Guide
+Created by Vanden Haviland, 2022 Head of Electrical for Team 178 The 2nd Law Enforcers
 Basic use examples of the arduino neopixel library.
 For more infromation go the the NeoPixel Uberguide at: https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use
 Another(slightly less user freindly) place for infromation is the neopixle class reference at: https://adafruit.github.io/Adafruit_NeoPixel/html/class_adafruit___neo_pixel.html#abccaba27e35bfae27c856e76b46c7924
@@ -14,22 +16,42 @@ Colors use the variable type uint32_t, this is a 32 bit unsigned unsigned intege
 uint32_t: unsigned 32 bit interger type
 */
 /*
-The Color method used below returns the 32 bit integer that corresponds to the rgb value in the parameters
+The Color method used below returns the integer that corresponds to the rgb value
 strip.Color(int red, int green, int blue)
+red green and blue have ranges of 0(off) - 255(full), to find more colors google color picker but keep in mind colors may not be exactly the same on the pixels and may need some adjustment
 */
-uint32_t blue = strip.Color(2, 5, 121);
-uint32_t yellow = strip.Color(255,208,0);
+int blue = strip.Color(2, 5, 121);
+int yellow = strip.Color(255,208,0);
 
-
-
+//variables for later use
+int pixelNum=0;
+int pixelNumEnd=1;
+int r=0;
+int g=0;
+int b=0;
 
 void setup() {
-  // put your setup code here, to run once:
-strip.begin(); //this starts the leds, you need this in the setup anytime you use a led string
+strip.begin(); //this starts the leds, you need this in the setup anytime you use a led string, 
 strip.show(); //any changes to the lights do not have an immediate effect, it simply saves it to a buffer, you must send the buffer to the lights by using strip.show(); 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  /*
+  setPixelColor sets individual pixels, there are two ways to use this method, one by using a color variable, and one by using individual ints for the red green and blue
+  setPixelColor(int pixelNumber, int color) the color integer must use the Color method
+  setPixelColor(int pixelNumber, int red, int green, int blue);
+  */  
+  strip.setPixelColor(pixelNum, blue);
+  //or
+  strip.setPixelColor(pixelNum, r, g, b);
+
+  /*
+  fill fills a set number of pixels starting from a specific point, and filling either a set number of fallowing pixels or the rest of the pixels
+  the fill method uses only a color variable so if you dont have a color variable declared earlier you can put strip.Color(r, g, b) in the color spot
+  to fill from a pixel to end of LED string do
+  */
+  strip.fill(blue, pixelNum);
+  //to fill only a section of the led strip do
+  strip.fill(blue, pixelNum, pixelNumEnd)
 
 }
