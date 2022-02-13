@@ -11,8 +11,12 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM, PIN, NEO_GRB + NEO_KHZ800); //w
 /*
 Enforcer colors: these are the team colors we use with the lights, if you look at the team branding page we typically use the Accent Blue for the blue and Enforcers Gold 3.0 for the yellow as they show up well on the LED's
 Colors use the variable type uint32_t, this is a 32 bit unsigned unsigned integer, it is used because the full rgb values need exactly 32 bits
+uint32_t: unsigned 32 bit interger type
 */
-
+/*
+The Color method used below returns the 32 bit integer that corresponds to the rgb value in the parameters
+strip.Color(int red, int green, int blue)
+*/
 uint32_t blue = strip.Color(2, 5, 121);
 uint32_t yellow = strip.Color(255,208,0);
 
