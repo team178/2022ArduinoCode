@@ -10,6 +10,7 @@ void setup() {
   strip.begin();
 
   strip.clear();
+  
 
 }
 
