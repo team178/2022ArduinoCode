@@ -6,7 +6,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM, PIN, NEO_GRB + NEO_KHZ800);
 
 /*
 Decimal	  Binary(pin/code)			        Action	
-	        DIO7/do0	DIO8/do1	DIO9/do2		
+	        DIO7/d0 	DIO8/d1	  DIO9/d2		
 0	        0	    	  0		      0		      Blue Alliance Normal	
 1	        0	    	  0	      	1    	  	Blue Shoot	
 2	        0		      1		      0	      	Blue Climb	
@@ -17,15 +17,12 @@ Decimal	  Binary(pin/code)			        Action
 */
 
 //input pins
-int do0 = 7;
-int do1 = 8;
-int do2 = 9;
+int d0 = 7;
+int d1 = 8;
+int d2 = 9;
 
-//stored pins
-bool d0=1;
-bool d1=1;
-bool d2=0;
-
+//reading
+int reading = 6;
 
 //Enforcers Colors
 int enforcerBlue = strip.Color(2, 5, 121);
@@ -34,8 +31,26 @@ int enforcerYellow = strip.Color(255,208,0);
 int red = strip.Color(237, 28, 36);
 int blue = strip.Color(0, 101, 179);
 
-void blueNormal(){
+void read(){
+  int reading = 0b00000000;
+  bitWrite(reading, 0, digitalRead(d0));
+  bitWrite(reading, 1, digitalRead(d1));
+  bitWrite(reading, 2, digitalRead(d2));
+}
 
+void run(){
+  if(reading==0) blueNormal();
+  else if(reading==1) blueShoot();
+  else if(reading==2) blueClimb();
+  else if(reading==3) redNormal();
+  else if(reading==4) redShoot();
+  else if(reading==5) redClimb();
+  else enforcers();
+}
+
+void blueNormal(){
+  strip.fill(blue, 0);
+  strip.show();
 }
 
 void blueShoot(){
@@ -47,7 +62,8 @@ void blueClimb(){
 }
 
 void redNormal(){
-
+  strip.fill(red, 0);
+  strip.show();
 }
 
 void redShoot(){
@@ -59,14 +75,20 @@ void redClimb(){
 }
 
 void enforcers(){
-
+  strip.fill(enforcerBlue, 0);
+  for(int i=0; i<NUM; i+=2){
+    strip.setPixelColor(enforcerYellow, i);
+  }
+  strip.show();
 }
 
 
 
 void setup() {
   // put your setup code here, to run once:
-
+  strip.begin();
+  strip.clear();
+  strip.show();
 }
 
 void loop() {
