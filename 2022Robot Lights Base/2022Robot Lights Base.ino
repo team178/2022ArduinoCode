@@ -58,7 +58,18 @@ void blueShoot(){
 }
 
 void blueClimb(){
-
+  strip.clear();
+  for(int i=0; i<NUM; i+=2){
+    strip.setPixelColor(i, blue);
+  }
+  strip.show();
+  delay(100);
+  strip.clear();
+  for(int i=1; i<NUM; i+=2){
+    strip.setPixelColor(i, blue);
+  }
+  strip.show();
+  delay(100);
 }
 
 void redNormal(){
@@ -71,7 +82,18 @@ void redShoot(){
 }
 
 void redClimb(){
-  
+  strip.clear();
+  for(int i=0; i<NUM; i+=2){
+    strip.setPixelColor(i, red);
+  }
+  strip.show();
+  delay(100);
+  strip.clear();
+  for(int i=1; i<NUM; i+=2){
+    strip.setPixelColor(i, red);
+  }
+  strip.show();
+  delay(100);
 }
 
 void enforcers(){
