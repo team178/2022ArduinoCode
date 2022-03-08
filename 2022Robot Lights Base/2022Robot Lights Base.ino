@@ -63,7 +63,7 @@ void blueShoot(){
       strip.setPixelColor((i-3), black);
     }
     strip.show();
-    delay(10)
+    delay(10);
   }
 }
 
@@ -97,7 +97,7 @@ void redShoot(){
       strip.setPixelColor((i-3), black);
     }
     strip.show();
-    delay(10)
+    delay(10);
   }
 }
 
