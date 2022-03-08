@@ -37,6 +37,7 @@ void read(){
   bitWrite(reading, 0, digitalRead(d0));
   bitWrite(reading, 1, digitalRead(d1));
   bitWrite(reading, 2, digitalRead(d2));
+  Serial.println("reading: " + reading);
 }
 
 void run(){
@@ -131,6 +132,7 @@ void setup() {
   strip.begin();
   strip.clear();
   strip.show();
+  Serial.begin(9600);
 }
 
 void loop() {
