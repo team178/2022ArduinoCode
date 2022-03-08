@@ -30,6 +30,7 @@ int enforcerYellow = strip.Color(255,208,0);
 //Allience Colors
 int red = strip.Color(237, 28, 36);
 int blue = strip.Color(0, 101, 179);
+int black = strip.Color(0, 0, 0);
 
 void read(){
   int reading = 0b00000000;
@@ -54,7 +55,16 @@ void blueNormal(){
 }
 
 void blueShoot(){
-
+  strip.clear();
+  strip.show();
+  for(int i=NUM; i>0; i--){
+    strip.setPixelColor(i, blue);
+    if(i>3){
+      strip.setPixelColor((i-3), black);
+    }
+    strip.show();
+    delay(10)
+  }
 }
 
 void blueClimb(){
@@ -79,6 +89,16 @@ void redNormal(){
 
 void redShoot(){
 
+  strip.clear();
+  strip.show();
+  for(int i=NUM; i>0; i--){
+    strip.setPixelColor(i, red);
+    if(i>3){
+      strip.setPixelColor((i-3), black);
+    }
+    strip.show();
+    delay(10)
+  }
 }
 
 void redClimb(){
@@ -115,5 +135,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+  read();
+  run();
 }
