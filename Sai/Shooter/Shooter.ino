@@ -21,8 +21,6 @@ void loop() {
   setColor();
 }
 
-// setColor()
-// picks random values to set for RGB
 void setColor(){
   redColor = random(0, 255);
   greenColor = random(0,255);
