@@ -13,8 +13,8 @@ int greenColor = 0;
 int blueColor = 0;
 
 void setup() {
-  // Initialize the NeoPixel library.
   pixels.begin();
+
 }
 
 void loop() {
