@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <Adafruit_NeoPixel.h>
 #define PIN 4
 #define NUMPIXELS 256
@@ -31,5 +32,16 @@ void chase(){
   delay(5000);
   }
   strip.show();
+=======
+void setup() {
+  // put your setup code here, to run once:
+
+  //just to comit
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+>>>>>>> 6486bdd475e7f5631cda63a2defb000a3739efa9
 
 }
