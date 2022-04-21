@@ -1,8 +1,11 @@
 #include <Adafruit_NeoPixel.h>
 #define PIN 4
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(144, PIN, NEO_GRB + NEO_KHZ800);
 
-#define NUMPIXELS 144
+
+#define NUMPIXELS 256 
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -23,7 +26,7 @@ void loop() {
 
 
 void displayBlue(){
-  for(int x = 0; x <= 144; x++){
+  for(int x = 0; x <= NUMPIXELS; x++){
   strip.setPixelColor(x,76,174,227);
   }
   strip.show();
@@ -32,7 +35,7 @@ void displayBlue(){
 
 
 void displayGold(){
-  for(int x = 0; x <= 144; x++){
+  for(int x = 0; x <= NUMPIXELS; x++){
   strip.setPixelColor(x,255,215,0);
   }
   strip.show();

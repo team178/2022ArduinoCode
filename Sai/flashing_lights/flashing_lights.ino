@@ -9,14 +9,16 @@ void setup() {
   strip.begin();
   
   strip.clear();
+  strip.setBrightness(50);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
- // for(int i=0; i<144; i++){
-  //  strip.setPixelColor(i, 255, 255, 255);
- // }
-//strip.fill(strip.setPixelColor(255,0,0), 0);
+ for(int i=0; i<300; i++){
+ strip.setPixelColor(i, 255, 255, 255);
+ 
+ 
+ }
 flashRed();
 delay(1000);
 flashGreen();
@@ -29,21 +31,21 @@ delay(1000);
 void flashRed(){
   
   for(int i =0; i<144; i++){
-    strip.setPixelColor(i, 255,0,0);
+    strip.setPixelColor(i,2, 5, 121);
   }
   strip.show();
 }
 void flashGreen(){
   
   for(int i =0; i<144; i++){
-    strip.setPixelColor(i, 0,255,0);
+    strip.setPixelColor(i,255,208,0);
   }
   strip.show();
   
 }void flashBlue(){
   
   for(int i =0; i<144; i++){
-    strip.setPixelColor(i, 0,0,255);
+    strip.setPixelColor(i,255,208,0);
   }  
   strip.show();
 }
